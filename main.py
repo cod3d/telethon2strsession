@@ -12,8 +12,8 @@ from database import Session as SessionTable
 
 def get_sessions(db_path: Path) -> Iterator[str]:
     """
-    Итератор StringSession из бд телеграмм сессии
-    :param db_path: путь к бд
+    Iterates sessions from the database
+    :param db_path: the database path
     :return: Iterator[StringSession]
     """
     print(f'looking for sessions in {db_path}...')
