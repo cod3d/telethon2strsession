@@ -1,2 +1,2 @@
 # telethon2strsession
-Converts .session telethon database to StringSession
+Converts a .session telethon database to the StringSession
