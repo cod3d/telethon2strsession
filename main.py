@@ -33,14 +33,17 @@ def get_sessions(db_path: Path) -> Iterator[str]:
             print(f'[{record.dc_id}] record is invalid. skip.')
             continue
         print(f'[{record.dc_id}] session found')
-        r_ip = ipaddress.ip_address(record.server_address).packed
-        yield CURRENT_VERSION + StringSession.encode(struct.pack(
-            _STRUCT_PREFORMAT.format(len(r_ip)),
-            record.dc_id,
-            r_ip,
-            record.port,
-            record.auth_key
-        ))
+        try:
+            r_ip = ipaddress.ip_address(record.server_address).packed
+            yield CURRENT_VERSION + StringSession.encode(struct.pack(
+                _STRUCT_PREFORMAT.format(len(r_ip)),
+                record.dc_id,
+                r_ip,
+                record.port,
+                record.auth_key
+            ))
+        except BaseException as e:
+            print(f'[{record.dc_id}] something went wrong with record {e}')
 
 
 if __name__ == '__main__':
