@@ -1,0 +1,4 @@
+*.session
+*.lock
+__pycache__
+.idea

@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "telethon2string"
+version = "0.1.0"
+description = ""
+authors = ["cod3d <trotil0749@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Telethon = "^1.25.4"
+peewee = "^3.15.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
