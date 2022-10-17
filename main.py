@@ -7,7 +7,7 @@ from typing import Iterator
 from telethon.sessions.string import StringSession, CURRENT_VERSION, _STRUCT_PREFORMAT
 from peewee import SqliteDatabase
 
-from database import Session as SessionTable
+from database import Session
 
 
 def get_sessions(db_path: Path) -> Iterator[str]:
@@ -18,7 +18,7 @@ def get_sessions(db_path: Path) -> Iterator[str]:
     """
     print(f'looking for sessions in {db_path}...')
 
-    class NSessionTable(SessionTable):
+    class NSessionTable(Session):
         class Meta:
             database = SqliteDatabase(db_path)
             table_name = 'sessions'
