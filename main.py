@@ -25,7 +25,7 @@ def get_sessions(db_path: Path) -> Iterator[str]:
 
     if not NSessionTable.table_exists():
         print(f'The database {db_path} does not contain `sessions` table')
-        return ''
+        return
 
     record: NSessionTable
     for record in NSessionTable.select():
